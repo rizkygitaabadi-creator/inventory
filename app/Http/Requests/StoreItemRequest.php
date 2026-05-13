@@ -26,7 +26,7 @@ class StoreItemRequest extends FormRequest
             'name'          => 'required|string|max:255',
             'quantity'      => 'required|integer|min:0',
             'price'         => 'required|numeric|min:0',
-            'categoty_id'   => 'required|exists:category,id',
+            'category_id'   => 'required|exists:categories,id',
         ];
     }
 
