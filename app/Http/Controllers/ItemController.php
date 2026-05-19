@@ -12,7 +12,8 @@ class ItemController extends Controller
 {
     protected ItemService $svc;
 
-    public function __construct(ItemService $svc) {
+    public function __construct(ItemService $svc)
+    {
         $this->svc = $svc;
     }
     /**
@@ -45,7 +46,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        try{
+        try {
             $item = $this->svc->find($id);
             return response()->json([
                 'status' => 'success',
@@ -64,7 +65,9 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateItemRequest $req, $id) {$item = $this->svc->update($id, $req->validated());
+    public function update(UpdateItemRequest $req, $id)
+    {
+        $item = $this->svc->update($id, $req->validated());
         return response()->json([
             'status' => 'success',
             'data' => $item,
@@ -75,7 +78,8 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $this->svc->delete($id);
         return response()->json([
             'status' => 'success',

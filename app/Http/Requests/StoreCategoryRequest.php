@@ -27,7 +27,8 @@ class StoreCategoryRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages()
+    {
         return [
             'name.unique' => 'Nama kategori sudah ada.'
         ];

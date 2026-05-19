@@ -30,7 +30,8 @@ class UpdateItemRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages()
+    {
         return [
             'sometimes.required' => 'Field ini diperlukan saat diubah.',
         ];
