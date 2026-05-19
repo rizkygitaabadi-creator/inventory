@@ -21,9 +21,10 @@ class CategoryController extends Controller
     public function index()
     {
         return response()->json([
-'status' => 'success',
-'data' => $this->svc->all(),
-'message' => 'Berhasil menarik semua data Kategori']);
+            'status' => 'success',
+            'data' => $this->svc->all(),
+            'message' => 'Berhasil menarik semua data Kategori'
+        ]);
     }
 
     /**
@@ -32,11 +33,11 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $req)
     {
         $cat = $this->svc->create($req->validated());
-return response()->json([
-'status' => 'success',
-'data' => $cat,
-'message' => 'Kategori berhasil dibuat'
-], 201);
+        return response()->json([
+            'status' => 'success',
+            'data' => $cat,
+            'message' => 'Kategori berhasil dibuat'
+        ], 201);
     }
 
     /**
@@ -45,18 +46,19 @@ return response()->json([
     public function show($id)
     {
         try {
-$cat = $this->svc->find($id);
-return response()->json([
-'status' => 'success',
-'data' => $cat,
-'message' => 'Berhasil menarik satu data kategori']);
-} catch (\Exception $e) {
-return response()->json([
-'status'=>'error',
-'data'=>null,
-'message'=>$e->getMessage()
-], 404);
-}
+            $cat = $this->svc->find($id);
+            return response()->json([
+                'status' => 'success',
+                'data' => $cat,
+                'message' => 'Berhasil menarik satu data kategori'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'data' => null,
+                'message' => $e->getMessage()
+            ], 404);
+        }
     }
 
     /**
@@ -65,11 +67,11 @@ return response()->json([
     public function update(UpdateCategoryRequest $req, $id)
     {
         $cat = $this->svc->update($id, $req->validated());
-return response()->json([
-'status' => 'success',
-'data' => $cat,
-'message' => 'Kategori berhasil diperbarui'
-]);
+        return response()->json([
+            'status' => 'success',
+            'data' => $cat,
+            'message' => 'Kategori berhasil diperbarui'
+        ]);
     }
 
     /**
@@ -78,10 +80,10 @@ return response()->json([
     public function destroy($id)
     {
         $this->svc->delete($id);
-return response()->json([
-'status' => 'success',
-'data' => null,
-'message' => 'Kategori berhasil dihapus'
-],204);
+        return response()->json([
+            'status' => 'success',
+            'data' => null,
+            'message' => 'Kategori berhasil dihapus'
+        ], 204);
     }
 }
